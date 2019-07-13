@@ -10,6 +10,9 @@ The app can be compiled with Rust 1.35 or later.  Earlier versions may be
 possible, but they have not been tested.  The app has been tested on macOS and
 Linux environments; other environments including Windows has not been tested.
 
+In the following example, the blue and red lines are the internal and external
+temperatures, as recorded by the temperature_sensor app.
+
 ![Example graph](doc/sample.png)
 
 ## Database Schema
