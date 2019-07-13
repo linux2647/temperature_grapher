@@ -16,9 +16,10 @@ Linux environments; other environments including Windows has not been tested.
 
 ```sql
 CREATE TABLE temperature (
-    id serial NOT NULL,
+    id serial NOT NULL PRIMARY KEY,
     internal real NOT NULL,
     external real NOT NULL,
+    -- timestamps will be store with UTC time zone
     datetime timestamp with time zone NOT NULL
 );
 ```
@@ -45,8 +46,7 @@ variables, will display the usage message.
 
 Instead of writing the graph image to a file, the app stores the graph image in
 S3.  The app will also write an `index.html` file in the root of the bucket to
-assist serving the graph.  **Both files will be set as publicly available.**
-(this is not configurable currently)
+assist serving the graph.
 
 Building for the AWS Lambda environment is very particular and has been
 simplified using Docker, utilizing the
@@ -78,3 +78,5 @@ Optionals:
 * `DB_PORT` PostgreSQL port; defaults to `5432`
 * `HOURS` How many hours of data to display; must be a positive integer;
     defaults to `72`
+* `PUBLIC` If set, sets the ACL to `public-read`.  **This means files will be 
+    publicly available.**  Otherwise, the ACL is `private`
