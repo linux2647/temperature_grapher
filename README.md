@@ -19,7 +19,7 @@ CREATE TABLE temperature (
     id serial NOT NULL PRIMARY KEY,
     internal real NOT NULL,
     external real NOT NULL,
-    -- timestamps will be store with UTC time zone
+    -- timestamps will be stored using UTC time zone
     datetime timestamp with time zone NOT NULL
 );
 ```
